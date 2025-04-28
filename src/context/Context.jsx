@@ -34,7 +34,7 @@ const ContextProvider = (props) => {
             setRecentPrompt(input)
             response = await runChat(input);
         }
-        let responseArray = response.split("**");
+        let responseArray = response.split("**");    // It makes every alternate part (after **) bold when displayed as HTML.
         let newArray = "";
         for (let i = 0; i < responseArray.length; i++) {
             if (i === 0 || i % 2 !== 1) {
@@ -73,9 +73,10 @@ const ContextProvider = (props) => {
         newChat
     }
 
+    //in main.jsx we attch context provider to use it in our app
     return (
-        <Context.Provider value={contextValue}>   //in main.jsx we attch it to use it in our app
-            {props.children}
+        <Context.Provider value={contextValue}>   
+           {props.children}   { /* props.children means the nested components or elements inside the Context.Provider when it's used. */}
         </Context.Provider>
     )
 }
