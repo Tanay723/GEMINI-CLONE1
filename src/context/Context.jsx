@@ -74,7 +74,7 @@ const ContextProvider = (props) => {
     }
 
     return (
-        <Context.Provider value={contextValue}>
+        <Context.Provider value={contextValue}>   //in main.jsx we attch it to use it in our app
             {props.children}
         </Context.Provider>
     )
